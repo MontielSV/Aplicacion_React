@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../config/database');
+const connection = require('../config/database');
+
 router.get('/', (req, res) => {
- const query = 'SELECT * FROM usuarios ORDER BY id DESC';
- db.query(query, (err, results) => {
- if (err) {
- console.error('Error al obtener usuarios:', err);
- return res.status(500).json({
- error: 'Error al obtener usuarios',
- details: err.message
- });
- }
- res.json(results);
- });
+  connection.query('SELECT * FROM usuarios', (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Error consultando usuarios' });
+      return;
+    }
+    res.json(rows);
+  });
 });
+
 module.exports = router;

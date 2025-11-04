@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function UserList() {
+
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/usuarios')
-      .then(res => setUsers(res.data))
-      .catch(err => console.error(err));
+    axios.get("https://solid-space-guide-jj97w477j96r2pwqq-5001.app.github.dev/api/usuarios")
+      .then(res => {
+        setUsers(res.data);
+      })
+      .catch(err => {
+        console.log("Error axios:", err);
+      });
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <h2>Lista de Usuarios</h2>
-      <table border="1" cellPadding="10">
+      <table>
         <thead>
           <tr>
-            <th>ID</th><th>Nombre</th><th>Email</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
