@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+/* 🎨 Estilos generales SANMIT */
+body {
+  background-color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2 {
+  color: #b30000;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 🔺 Navbar SANMIT */
+.navbar-sanmit {
+  background-color: #b30000;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.navbar-sanmit img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.btn-sanmit {
+  background-color: white;
+  color: #b30000;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  padding: 5px 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-sanmit:hover {
+  background-color: #ffe5e5;
+  transform: scale(1.05);
+}
+
+/* 🧾 Tablas */
+table {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #b30000 !important;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+input, select {
+  border-radius: 6px !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 📱 Responsividad */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; }
 }

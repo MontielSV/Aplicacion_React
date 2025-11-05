@@ -1,3 +1,4 @@
+import './App.css';
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
@@ -10,32 +11,34 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* ruta login */}
+        {/* 🔐 Ruta de Login */}
         <Route path="/login" element={<Login />} />
 
-        {/* rutas protegidas */}
+        {/* 🔒 Rutas protegidas */}
         <Route
           path="/usuarios"
           element={
             <ProtectedRoute>
               <div>
-                {/* NAVBAR SANMIT */}
-                <nav className="navbar navbar-dark" style={{ backgroundColor: "red" }}>
-                  <div className="container">
-                    <span className="navbar-brand mb-0 h1">SANMIT</span>
 
-                    <button
-                      className="btn btn-light btn-sm"
-                      onClick={() => {
-                        localStorage.removeItem("user");
-                        window.location.href = "/login";
-                      }}
-                    >
-                      Cerrar Sesión
-                    </button>
+                {/* 🔺 NAVBAR SANMIT */}
+                <nav className="navbar-sanmit">
+                  <div className="d-flex align-items-center">
+                    <img src="/images/logo-sanmit.png" alt="SANMIT" />
+                    <span className="fw-bold fs-4">SANMIT</span>
                   </div>
+                  <button
+                    className="btn-sanmit"
+                    onClick={() => {
+                      localStorage.removeItem("user");
+                      window.location.href = "/login";
+                    }}
+                  >
+                    Cerrar Sesión
+                  </button>
                 </nav>
 
+                {/* 🔹 Panel principal */}
                 <h1 className="text-center mt-4">Panel de Usuarios SANMIT</h1>
 
                 <div className="container mt-4">
@@ -48,7 +51,7 @@ function App() {
           }
         />
 
-        {/* redireccion raiz */}
+        {/* 🏠 Redirección raíz */}
         <Route path="/" element={<Navigate to="/login" />} />
 
       </Routes>
